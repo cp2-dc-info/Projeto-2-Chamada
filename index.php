@@ -33,7 +33,7 @@ if(isset($_POST['email']))
     {
       if($u->logar($email, $senha))
       {
-        header("location: AreaPrivada.php")
+        header("location: AreaPrivada.php");
       }
       else
       {
@@ -43,26 +43,27 @@ if(isset($_POST['email']))
         </div>
         <?php
       }
-  }
-  else
-  {
+   }
+   else
+   {
       ?>
       <div class="msg-erro">
         <?php echo "Erro: ".$u->msgErro; ?>
       </div>
       <?php
-  }
-  else
-  {
-    ?>
-    <div class="msg-erro">
+   }else 
+   
+   {
+     ?>
+     <div class="msg-erro">
       Preencha todos os campos!
-    </div>
-    <?php
-  }
+     </div>
+     <?php
+   }
  }
 }
 ?>
+
 
 
 </body>
