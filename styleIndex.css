@@ -1,14 +1,10 @@
-  html
-  {
-    height: 100px;
-  }
 
   body
   {
-    background-image: url("fundo.jpg");
     margin: 0;
     padding: 0;
     height: 100%;
+
   }
   
   #login-box
@@ -64,10 +60,7 @@
 .form{
   margin-top: 90px;
   margin-left:75px;
-
-
 }
-
 
 body{
   font-family: "Georgia", Georgia, serif;

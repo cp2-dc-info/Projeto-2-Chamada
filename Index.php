@@ -20,9 +20,6 @@
           <div class="form-group" style="font-size:13px;">
             <label>Senha: <input name="senha" type="password" required minlength="6" maxlength="12" placeholder="******" class="form-control"/></label>
           </br>  <a href="cadastro.php" name="entrar" style="font-size:13px;">Cadastre-se</a>
-          ou
-        </br> <a href="inicio.php" style="font-size:13px;">Entre como visitante</a>
-
           </div>
 
 
