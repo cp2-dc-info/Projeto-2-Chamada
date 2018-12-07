@@ -34,37 +34,30 @@ if(isset($_POST['email']))
       if($u->logar($email, $senha))
       {
         header("location: AreaPrivada.php");
-      }
-      else
-      {
+      } else{
         ?>
         <div class="msg-erro">
           Email e/ou senha estão incorretos!
         </div>
         <?php
-      }
-   }
-   else
-   {
+      }else {
       ?>
       <div class="msg-erro">
         <?php echo "Erro: ".$u->msgErro; ?>
       </div>
       <?php
-   }else 
-   
-   {
+     }else{
+     
      ?>
      <div class="msg-erro">
       Preencha todos os campos!
      </div>
      <?php
-   }
+      }
+    }
+  }
  }
-}
 ?>
-
-
 
 </body>
 </html>

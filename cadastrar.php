@@ -76,8 +76,7 @@ if(isset($_POST['nome']))
         </div>
         <?php
     }
-  }
-  else
+  }else
   {
     ?>
     <div class="msg-erro">
