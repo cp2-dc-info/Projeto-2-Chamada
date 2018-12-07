@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>MaisCPII - Aprendendo além da escola</title>
+  <title>Colégio Pedro II</title>
 
   <link rel="icon" href="Imagens/favi.ico" type="image/ico" sizes="64x64">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -11,17 +11,6 @@
 
 <body>
   <div id="login-box">
-
-
-    <div id="login-logo">
-      <img src="" id="logo" alt="+CP2">
-    </div>
-
-		<?php if ($erros !=null) { ?>
-			<div class="alert alert-warning">
-				<p>Erro: <?= $erros ?></p>
-			</div>
-		<?php } ?>
 
     <div class="Container">
         <form method="POST" class="form" action="Controle/entra.php">
