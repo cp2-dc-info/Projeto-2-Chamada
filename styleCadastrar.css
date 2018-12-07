@@ -1,0 +1,61 @@
+body
+{
+  background-image: url();
+
+}
+
+#login-box
+{
+  background-color:white;
+  width: 350px;
+  height: 500px;
+  margin: 99px auto 0px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px black;
+
+}
+
+#login-logo
+{
+
+  height: 80px;
+
+
+}
+
+#logo
+{
+  width:80px;
+  height:80px;
+  position:absolute;
+  top:26%;
+  left:47%;
+  margin-top:-58px;
+  margin-left:-43px;
+  display: block;
+
+}
+
+#login-descricao{
+  margin-left: 20px;
+  margin-top: 10px;
+
+
+
+
+}
+.botao{
+margin-left:100px;
+color:white;
+
+}
+
+#cadastre{
+  margin-left: 90px;
+  margin-top: 5px;
+   font-size: 23px;"
+}
+
+body{
+  font-family: "Georgia", Georgia, serif;
+}

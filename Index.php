@@ -12,6 +12,10 @@
 <body>
   <div id="login-box">
 
+    <div id="login-logo">
+      <img src="logo.png" id="logo" alt="CP2">
+    </div>
+
     <div class="Container">
         <form method="POST" class="form" action="Controle/entra.php">
           <div class="form-group">
