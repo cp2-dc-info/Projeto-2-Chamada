@@ -1,0 +1,55 @@
+CREATE TABLE Aluno(
+    matricula VARCHAR(9) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    senha INT NOT NULL,
+    PRIMARY KEY(matricula)
+    );
+    
+CREATE TABLE Professor(
+    materia VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    senha INT NOT NULL,
+    PRIMARY KEY(materia)
+    );
+    
+CREATE TABLE Direcao(
+    matricula VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    senha INT NOT NULL,
+    PRIMARY KEY(matricula)
+    );
+    
+CREATE TABLE Disciplina(
+    id INT NOT NULL,
+    disciplina VARCHAR(50) NOT NULL,
+    PRIMARY KEY(id)
+    );
+    
+CREATE TABLE Certificacao(
+    id INT NOT NULL,
+    cert VARCHAR(50) NOT NULL,
+    PRIMARY KEY(id)
+    );
+    
+CREATE TABLE Deferimento(
+    id INT NOT NULL,
+    resposta VARCHAR(500) NOT NULL,
+    PRIMARY KEY(id)
+    );
+    
+CREATE TABLE Pedidos(
+    id INT NOT NULL,
+    avaliacao VARCHAR(500) NOT NULL,
+    disciplina VARCHAR(50) NOT NULL,
+    certificacao VARCHAR(50) NOT NULL,
+    justificativa VARCHAR(500) NOT NULL,
+    aluno_id VARCHAR(9) NOT NULL,
+    disciplina_id INT NOT NULL,
+    cert_id INT NOT NULL,
+    PRIMARY KEY(id),	 
+    FOREIGN KEY(aluno_id) REFERENCES Aluno(matricula),
+    FOREIGN KEY(disciplina_id) REFERENCES Disciplina(id),
+    FOREIGN KEY(cert_id) REFERENCES Certificacao(id)
+	);
+    
+    
