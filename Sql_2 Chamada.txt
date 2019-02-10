@@ -1,43 +1,53 @@
-CREATE TABLE Aluno(
+CREATE TABLE cadastro(
+	matricula VARCHAR(9) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
+	sobrenome VARCHAR(50) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	senha VARCHAR(60) NOT NULL,
+	tipo INT NOT NULL,
+	PRIMARY KEY(matricula)
+	);
+
+CREATE TABLE aluno(
     matricula VARCHAR(9) NOT NULL,
     email VARCHAR(50) NOT NULL,
     senha INT NOT NULL,
     PRIMARY KEY(matricula)
     );
     
-CREATE TABLE Professor(
+CREATE TABLE professor(
     materia VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     senha INT NOT NULL,
     PRIMARY KEY(materia)
     );
     
-CREATE TABLE Direcao(
+CREATE TABLE direcao(
     matricula VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
     senha INT NOT NULL,
     PRIMARY KEY(matricula)
     );
     
-CREATE TABLE Disciplina(
+CREATE TABLE disciplina(
     id INT NOT NULL,
     disciplina VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
     );
     
-CREATE TABLE Certificacao(
+CREATE TABLE certificacao(
     id INT NOT NULL,
     cert VARCHAR(50) NOT NULL,
     PRIMARY KEY(id)
     );
     
-CREATE TABLE Deferimento(
+CREATE TABLE deferimento(
     id INT NOT NULL,
     resposta VARCHAR(500) NOT NULL,
     PRIMARY KEY(id)
     );
     
-CREATE TABLE Pedidos(
+CREATE TABLE pedidos(
     id INT NOT NULL,
     avaliacao VARCHAR(500) NOT NULL,
     disciplina VARCHAR(50) NOT NULL,
