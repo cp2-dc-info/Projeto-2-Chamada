@@ -4,7 +4,7 @@ CREATE TABLE cadastro(
 	sobrenome VARCHAR(50) NOT NULL,
 	email VARCHAR(100) NOT NULL,
 	senha VARCHAR(60) NOT NULL,
-	tipo INT NOT NULL,
+	tipo INT NOT NULL,     -- 1: Aluno, 2: Professor
 	PRIMARY KEY(matricula)
 	);
 
