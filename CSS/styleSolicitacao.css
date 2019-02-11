@@ -16,7 +16,8 @@
   #formulario {
   background-color: #d8d5d51a;
   width: 500px; 
-  margin-left: 20%;
+  margin-left: 18%;
+  margin-top: -10%;
   padding: 45px 15px;
   height: auto;
 }
@@ -38,6 +39,18 @@
   padding: 8px 1%;
   width: 94%;
 }
+
+.button
+  {
+    color: black;
+    background-color: #d8d5d51a;
+    width: 235px;
+    height: 50px;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+     float:left;
+  }
 
   #login-box
   {
