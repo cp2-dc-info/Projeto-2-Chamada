@@ -1,3 +1,23 @@
+<?php
+
+  session_start();
+  if (array_key_exists('erroLogin', $_SESSION))
+  {
+    $erro = $_SESSION['erroLogin'];
+    unset($_SESSION['erroLogin']);
+  }
+  else
+  {
+    $erro = null;
+  }
+
+  if (array_key_exists('emailUsuarioLogado', $_SESSION) == true)
+  {
+    header('location: Inicio.php');
+  }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,12 +35,13 @@
 
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
+      <?= $erro ?>
     </div>
 
     <div class="Container">
-        <form method="POST" class="form" action="Controle/entra.php">
+        <form method="POST" class="form" action="Controladores/entrar.php">
           <div class="form-group">
-            <label>Matrícula: <input name="nomeUsuario" type="text" required placeholder="Login" class="form-control"/></label>
+            <label>E-mail: <input name="email" type="email" required placeholder="E-mail" class="form-control"/></label>
           </div>
           <div class="form-group">
             <label>Senha: <input name="senha" type="password" required minlength="6" maxlength="12" placeholder="******" class="form-control"/></label>

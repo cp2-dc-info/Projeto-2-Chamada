@@ -1,61 +1,55 @@
 body
 {
-  background-image: url();
-
+  margin: 0;
+  padding: 0;
 }
 
 #login-box
 {
-  background-color:white;
+   background-color:white;
   width: 350px;
-  height: 500px;
+  height: 550px;
   margin: 99px auto 0px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px black;
-
 }
 
 #login-logo
 {
-
-  height: 80px;
-
-
+  top:-100px;
+  height: 120px;
 }
 
 #logo
 {
-  width:80px;
-  height:80px;
-  position:absolute;
-  top:26%;
-  left:47%;
-  margin-top:-58px;
-  margin-left:-43px;
-  display: block;
-
+    height:150px;
+    top:-26%;
+    left:45%;
+    margin-top:-65px;
+    margin-left:100px;
+    display: block;
 }
 
-#login-descricao{
+#login-descricao
+{
   margin-left: 20px;
   margin-top: 10px;
-
-
-
-
-}
-.botao{
-margin-left:100px;
-color:white;
-
 }
 
-#cadastre{
+.botao
+{
+  margin-left:100px;
+  color:white;
+}
+
+#cadastre
+{
   margin-left: 90px;
   margin-top: 5px;
-   font-size: 23px;"
+  font-size: 23px;
 }
 
-body{
+body
+{
   font-family: "Georgia", Georgia, serif;
 }

@@ -1,5 +1,17 @@
 <!DOCTYPE html>
+<?php 
 
+session_start();
+if(array_key_exists('erroLogin', $_SESSION))
+{
+  $erros = $_SESSION['erroLogin'];
+  unset($_SESSION['erroLogin']);
+}
+else {
+  $erros = null;
+}
+
+?>
 <html>
 <head>
   <meta charset="UTF-8"/>
@@ -21,7 +33,7 @@
     <div id="login-descricao">
 
       <p id=cadastre></p>
-      <form id="formulario" method="POST" action='Controle/Usuario/cadastraUsuario.php' novalidate>
+      <form id="formulario" method="POST" action='Controladores/phpcadastro.php' novalidate>
 
       </br><input name="nome" type="text"  placeholder="Nome" style="width:150px;font-size:16px;" width minlenght=3 maxlength=60 required/>
 
@@ -35,14 +47,8 @@
 
         <br/><input name="email" type="email" placeholder="E-mail" style="width:150px; font-size:16px" required/><br/><br/>
 
-      <div id="alunoprofessor">
+        <label><input name="tipo" type="radio" value="1"/>Sou Aluno/Responsável</label><br/>
 
-
-        <label><input name="tipo" type="radio" value="1" />Sou Aluno/Responsável</label><br/>
-
-        <label><input name="tipo" type="radio" value="2" />Sou Professor</label><br/>
-
-      </div>
         <label><input name="alertasEmail" type="checkbox"/>Receber alertas por e-mail.</label><br/>
 
       </br><input class ="botao btn btn-primary" type="submit" value="Criar conta"/>
