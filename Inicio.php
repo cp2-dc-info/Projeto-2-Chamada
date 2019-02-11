@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if(array_key_exists('username', $_SESSION)){
@@ -6,6 +7,7 @@ if(array_key_exists('username', $_SESSION)){
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +37,11 @@ if(array_key_exists('username', $_SESSION)){
     <button type="button" class="button">Contato</button>
     <a href="Controladores/sair.php" class ="button" type="button"><button> Sair </button> </a>
 
+
+
+    <button type="button" class="button">Solicitação</button>
+    <button type="button" class="button">Calendário</button>
+    <button type="button" class="button">Contato</button>
 
 <footer class="rodape">
   <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
