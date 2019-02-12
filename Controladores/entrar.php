@@ -1,8 +1,23 @@
 <?php
 
-require_once('../Banco de Dados/tabelaCadastro.php');
+require_once('../Banco de dados/criaConexãoBD.php');
 
-$erro = "";
+function BuscaUsuarioPorEmail(string $email)
+	{
+		$bd = criaConexaoBD();
+
+		$sql = $bd->prepare("SELECT email, senha 
+			FROM cadastro 
+			WHERE email = :email");
+
+		$sql -> bindValue(':email', $email);
+
+		$sql->execute();
+
+		return $sql -> fetch();
+	}
+
+$erro = null;
 
 $request = array_map('trim', $_REQUEST);
 $request = filter_var_array(
@@ -34,6 +49,7 @@ else
 	{
 		$erro = "Senha inválida";
 	}
+	
 }
 
 

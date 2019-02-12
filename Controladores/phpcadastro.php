@@ -1,6 +1,6 @@
 <?php
-require_once('../Banco de Dados/criaConexãoBD.php');
-require_once('../Banco de Dados/tabelaCadastro.php');
+require_once('../Banco de dados/criaConexãoBD.php');
+require_once('../Banco de dados/tabelaCadastro.php');
 
 $erros = [];
 
