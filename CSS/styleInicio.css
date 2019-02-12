@@ -13,6 +13,14 @@
     margin-left: 115px; 
   }
   
+ #buttonsair
+  {
+    color: black;
+    margin-left: 50px;
+    padding: 0px;
+    margin: 0px;
+  }
+
   .button
   {
     color: black;
@@ -53,28 +61,34 @@
 
   }
 
-  #cadastre{
+  #cadastre
+  {
     margin-left: 115px;
     margin-top: 5px;
      font-size: 23px;"
   }
 
-  #tipo{
+  #tipo
+  {
     margin-left: 60px;
     font-size: 19px;"
   }
 
-.botao{
+.botao
+{
   margin-left: 26%;
   color: white;
 
 }
 
-.form{
+.form
+{
   margin-top: 90px;
   margin-left:75px;
 }
 
-body{
+
+body
+{
   font-family: "Georgia", Georgia, serif;
 }

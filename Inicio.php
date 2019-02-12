@@ -3,11 +3,8 @@
 session_start();
 if(array_key_exists('username', $_SESSION)){
   $username = $_SESSION['username'];
-
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -31,17 +28,13 @@ if(array_key_exists('username', $_SESSION)){
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
-    <?= $username ?>
+      <?php
+         echo "Seja bem vindo (a), ".$_SESSION['username'];
+       ?>
     <button type="button" class="button">Solicitação</button>
     <button type="button" class="button">Calendário</button>
     <button type="button" class="button">Contato</button>
-    <a href="Controladores/sair.php" class ="button" type="button"><button> Sair </button> </a>
-
-
-
-    <button type="button" class="button">Solicitação</button>
-    <button type="button" class="button">Calendário</button>
-    <button type="button" class="button">Contato</button>
+    <a href="Controladores/sair.php" class ="button" type="button"><button class="button"> Sair </button> </a>
 
 <footer class="rodape">
   <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>

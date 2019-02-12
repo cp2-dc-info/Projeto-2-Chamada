@@ -32,7 +32,7 @@ else {
 
     <div id="login-descricao">
 
-      <p id=cadastre></p>
+      <p id="cadastre"></p>
       <form id="formulario" method="POST" action='Controladores/phpcadastro.php' novalidate>
 
       </br><input name="nome" type="text"  placeholder="Nome" style="width:150px;font-size:16px;" width minlenght=3 maxlength=60 required/>
