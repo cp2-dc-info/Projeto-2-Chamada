@@ -31,7 +31,7 @@ if(array_key_exists('username', $_SESSION)){
       <?php
          echo "Seja bem vindo (a), ".$_SESSION['username'];
        ?>
-    <button type="button" class="button">Solicitação</button>
+    <a href="solicitacao.php" class="button" type="button"><button class="button">Solicitação</button></a>
     <button type="button" class="button">Calendário</button>
     <button type="button" class="button">Contato</button>
     <a href="Controladores/sair.php" class ="button" type="button"><button class="button"> Sair </button> </a>

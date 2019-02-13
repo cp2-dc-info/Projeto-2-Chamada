@@ -25,26 +25,26 @@
     <div class="Container">
         
 
-<form id="formulario">
+<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' novalidate>
 
 <div class="campo">
-    <label>Nome Completo:</label>
-    <input type="text" placeholder="Nome"/>
+    <label>Disciplina:</label>
+    <select>
+      <option value="">Selecione a disciplina</option>
+      <option value="1">Matemática</option>
+      <option value="2">Português</option>
+      <option value="3">Biologia</option>
+      <option value="4">Geografia</option>
+      <option value="5">História</option>
+      <option value="6">Filosofia</option>
+      <option value="7">Sociologia</option>
+    </select>
 </div>
 
-
 <div class="campo">
-    <label>Matéria:</label>
-    <input type="text" placeholder="Nome"/>
-</div>
-
-<div class="campo">
-  <label>Série</label>
-  <select value="Selecione(select)">
-      <option disabled>1 Série</option>
-      <option disabled>2 Série</option>
-      <option disabled>3 Série</option>
-  </select>
+  <label>Turma</label>
+    <input type="text" placeholder="Turma">
+  
 </div>
 
 <div class="campo">
@@ -57,7 +57,7 @@
     <input type="checkbox"> Integrado 
     <input type="checkbox"> Regular 
 </div>
-  <button type="button" class="button">Voltar</button>
+  <a href="Inicio.php" class="button" type="button"><button class="button">Voltar</button></a>
   <button type="button" class="button">Enviar</button>
 </form>
 

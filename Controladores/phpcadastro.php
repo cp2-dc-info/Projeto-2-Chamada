@@ -1,6 +1,21 @@
 <?php
-require_once('../Banco de Dados/criaConexãoBD.php');
-require_once('../Banco de Dados/tabelaCadastro.php');
+require_once('../Banco de dados/criaConexãoBD.php');
+require_once('../Banco de dados/tabelaCadastro.php');
+
+function BuscaUsuarioPorEmail(string $email)
+	{
+		$bd = criaConexaoBD();
+
+		$sql = $bd->prepare("SELECT email, senha 
+			FROM cadastro 
+			WHERE email = :email");
+
+		$sql -> bindValue(':email', $email);
+
+		$sql->execute();
+
+		return $sql -> fetch();
+	}
 
 $erros = [];
 
