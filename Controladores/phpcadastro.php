@@ -1,4 +1,5 @@
 <?php
+
 require_once('../Banco de dados/criaConexãoBD.php');
 require_once('../Banco de dados/tabelaCadastro.php');
 
