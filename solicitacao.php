@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -23,9 +23,9 @@
     </div>
 
     <div class="Container">
-        
 
-<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' novalidate>
+
+<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' enctype="multipart/form-data">
 
 <div class="campo">
     <label>Disciplina:</label>
@@ -44,28 +44,32 @@
 <div class="campo">
   <label>Turma</label>
     <input type="text" placeholder="Turma">
-  
+
 </div>
 
 <div class="campo">
      <label>Justifique:</label>
-    <input type="text"  placeholder="Descrição"/>
+     <textarea></textarea>
+
+ 		    <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file"/>
+
+        <button class="button" type="submit">Enviar</button>
+
+ 	</form>
+
 </div>
 
-<div id="checkbox" class="campo2">
-    <label>Você é:</label>
-    <input type="checkbox"> Integrado 
-    <input type="checkbox"> Regular 
 </div>
-  <a href="Inicio.php" class="button" type="button"><button class="button">Voltar</button></a>
-  <button type="button" class="button">Enviar</button>
+
+  <footer class="rodape">
+    <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
+  </footer>
 </form>
+<a href="Inicio.php" type="button"><button class="button">Voltar</button></a>
 
 
     </div>
-<footer class="rodape">
-  <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
-</footer>
+
 
   </div>
 
