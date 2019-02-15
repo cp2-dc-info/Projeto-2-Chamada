@@ -10,20 +10,20 @@ CREATE TABLE cadastro(
     );
 
 CREATE TABLE turma(
-    id INT NOT NULL,
-    turma VARCHAR(50) NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    turma VARCHAR(50)  NOT NULL UNIQUE,
     PRIMARY KEY(id)
     );
 
 CREATE TABLE disciplina(
-    id INT NOT NULL,
-    disciplina VARCHAR(50) NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY(id)
     );
 
 
 CREATE TABLE disciplina_turma(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     disciplina int NOT NULL,
     turma int NOT NULL,
     PRIMARY KEY(id),
@@ -33,7 +33,7 @@ CREATE TABLE disciplina_turma(
 
 
 CREATE TABLE pedidos(
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     cadastro int not null,
     disciplina_turma int NOT NULL,
     justificativa VARCHAR(500) NOT NULL,
@@ -42,6 +42,12 @@ CREATE TABLE pedidos(
     FOREIGN KEY(disciplina_turma) REFERENCES disciplina_turma(id)
     );
 
-
-
-
+INSERT INTO disciplina(nome) VALUES
+('Matemática'),
+('Português'),
+('Biologia'),
+('Geografia'),
+('História'),
+('Filosofia'),
+('Sociologia'),
+('Física');
