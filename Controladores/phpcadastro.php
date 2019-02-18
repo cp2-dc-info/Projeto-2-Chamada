@@ -19,8 +19,7 @@ $validar = filter_var_array(
 		'email' => FILTER_VALIDATE_EMAIL,
 		'senha' => FILTER_DEFAULT,
 		'confirmaSenha' => FILTER_DEFAULT,
-		'matricula'=>FILTER_DEFAULT,
-		'tipo' => FILTER_VALIDATE_INT,
+		'matricula'=>FILTER_DEFAULT
 	]
 );
 
@@ -30,7 +29,6 @@ $senha = $validar['senha'];
 $confirmaSenha = $validar['confirmaSenha'];
 $email = $validar['email'];
 $matricula = $validar['matricula'];
-$tipo = $validar['tipo'];
 
 //nome
 $nome = $validar['nome'];
@@ -90,11 +88,7 @@ if ($senha != $validar['confirmaSenha'])
 $validar['senha'] = password_hash("$senha", PASSWORD_DEFAULT);
 
 //tipo
-$tipo = $validar['tipo'];
-if ($tipo == false)
-{
-	$erros[] = "Selecione a opção";
-}
+$validar['tipo'] = 1;
 
 //matricula
 $matricula = $validar['matricula'];
@@ -112,8 +106,8 @@ session_start();
 if ($erros != null)
 {
 	$_SESSION['erroLogin'] = $erros;
-	var_dump(erros);
-	//header('location: ../cadastro.php');
+	
+	header('location: ../cadastro.php');
 }
 else if ($erros == null)
 {

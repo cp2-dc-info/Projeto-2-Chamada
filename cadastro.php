@@ -45,9 +45,7 @@ else {
 
         <input name="confirmaSenha" type="password" placeholder="Confirmar senha" style="width:150px; font-size:16px" minlenght=6 maxlength=12 required/><br/>
 
-        <br/><input name="email" type="email" placeholder="E-mail" style="width:150px; font-size:16px" required/><br/><br/>
-
-        <label><input name="tipo" type="radio" value="1"/>Sou Aluno/Responsável</label><br/>
+        <br/><input name="email" type="email" placeholder="E-mail" style="width:150px; font-size:16px" required/><br/><br/> 
 
         <label><input name="alertasEmail" type="checkbox"/>Receber alertas por e-mail.</label><br/>
 

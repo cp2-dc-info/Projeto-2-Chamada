@@ -1,17 +1,13 @@
 <?php
 session_start();
 
-if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' ,$_SESSION != null))
+if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' ,$_SESSION  ))
 {
   $username = $_SESSION['username'];
   $id = $_SESSION['usuariologado'];
- // var_dump($username);
-}
-else 
-{
 
-  header('Location:Index.php');
 }
+
 
 ?>
 
