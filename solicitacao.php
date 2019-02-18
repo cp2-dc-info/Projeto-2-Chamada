@@ -1,3 +1,22 @@
+<?php 
+session_start();
+require_once('Banco de Dados/tabelaDisciplinaTurma.php');
+
+if(array_key_exists('username', $_SESSION))
+{
+  $username = $_SESSION['username'];
+}
+
+$Listaturma = Listaturma();
+
+$lista_disciplina_por_turma = [];
+foreach (BuscaDisciplinasTurma() as $linha)
+{
+  $idTurma = $linha['idTurma'];
+  $lista_disciplina_por_turma[$idTurma][] = $linha;
+}
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +29,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+  <script>
+    const listaDisciplinasPorTurma = <?= json_encode($lista_disciplina_por_turma, JSON_UNESCAPED_UNICODE) ?>;
 
+    function updateOrder(selectTurma)
+    {
+      const turma = selectTurma.value;
+
+      const select = document.getElementById('disciplina');
+
+      // Remove as disciplinas da turma selecionada anteriormente,
+      // deixando apenas a 1ª aopção ("Selecione a disciplina"):
+      select.options.length = 1;
+
+
+      // Popula as opções de disciplina da turma
+      const disciplinasTurma = listaDisciplinasPorTurma[turma];
+
+      for (const i in disciplinasTurma)
+      {
+        const disciplina = disciplinasTurma[i];
+
+        option = document.createElement('option');
+        option.value = disciplina.id;
+        option.text = disciplina.nome;
+        select.add (option);  
+      }
+    }
+ 
+  </script>
 </head>
 
 <body>
@@ -23,53 +70,53 @@
     </div>
 
     <div class="Container">
+        
+
+<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' novalidate>
 
 
-<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' enctype="multipart/form-data">
-
-<div class="campo">
-    <label>Disciplina:</label>
-    <select>
-      <option value="">Selecione a disciplina</option>
-      <option value="1">Matemática</option>
-      <option value="2">Português</option>
-      <option value="3">Biologia</option>
-      <option value="4">Geografia</option>
-      <option value="5">História</option>
-      <option value="6">Filosofia</option>
-      <option value="7">Sociologia</option>
-    </select>
-</div>
 
 <div class="campo">
   <label>Turma</label>
-    <input type="text" placeholder="Turma">
+    <select id="turma"  onchange = "updateOrder(this)">
+            <option value="">Selecione a Turma</option>
 
+      <?php foreach ($Listaturma as $turmas) { ?>
+      <option value="<?= $turmas['id']?>"><?php echo $turmas['turma']?></option>
+  <?php } ?>
+    </select>
+  
+</div>
+
+<div class="campo">
+    <label>Disciplina:</label>
+    <select id="disciplina">
+            <option value="">Selecione a disciplina</option>
+    </select>
 </div>
 
 <div class="campo">
      <label>Justifique:</label>
      <textarea></textarea>
 
- 		    <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file"/>
+        <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file"/>
 
         <button class="button" type="submit">Enviar</button>
 
- 	</form>
+  </form>
 
 </div>
 
-</div>
 
-  <footer class="rodape">
-    <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
-  </footer>
+  <a href="Inicio.php" class="button" type="button"><button class="button">Voltar</button></a>
+  <button type="button" class="button">Enviar</button>
 </form>
-<a href="Inicio.php" type="button"><button class="button">Voltar</button></a>
 
 
     </div>
-
+<footer class="rodape">
+  <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
+</footer>
 
   </div>
 
