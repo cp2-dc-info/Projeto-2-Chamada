@@ -57,7 +57,8 @@ session_start();
 if ($erro == null)
 {
 		$_SESSION['emailUsuarioLogado'] = $usuário['email'];
-
+		$user_name = $usuario['nome'];
+		$_SESSION['username'] = $user_name;	
 		header('Location: ../Inicio.php');
 
 }

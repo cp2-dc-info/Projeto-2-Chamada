@@ -11,10 +11,7 @@
     $erro = null;
   }
 
-  if (array_key_exists('emailUsuarioLogado', $_SESSION) == true)
-  {
-    header('location: Inicio.php');
-  }
+  
 
 ?>
 

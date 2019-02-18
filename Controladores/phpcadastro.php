@@ -3,6 +3,7 @@
 require_once('../Banco de dados/criaConexãoBD.php');
 require_once('../Banco de dados/tabelaCadastro.php');
 
+
 function BuscaUsuarioPorEmail(string $email)
 	{
 		$bd = criaConexaoBD();
@@ -119,30 +120,18 @@ else if (strlen($matricula) > 9 || strlen($matricula) < 7)
 	$erros[] = "A quantidade de caracteres da matrícula é inválida";
 }
 
-if (empty( $erros ))
-	{ insereUsuario ($validar);	}
 
-?>
-
-
-<?php foreach($erros as $msg) { ?>
-	<li><?= $msg ?></li>
-
-<?php } ?>
-
-
-<?php
-
+session_start();
 if ($erros != null)
 {
-	session_start();
 	$_SESSION['erroLogin'] = $erros;
 	header('location: ../cadastro.php');
 }
 else if ($erros == null)
 {
-	session_start();
-	$_SESSION['emailUsuarioLogado'] = $email;
+	
+	$id = insereUsuario($validar);
+	$_SESSION['usuariologado'] = $id;
 	$_SESSION['username'] = $nome;
 	header('location: ../index.php');
 }

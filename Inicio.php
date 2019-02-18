@@ -1,9 +1,12 @@
-
 <?php
 session_start();
-if(array_key_exists('username', $_SESSION)){
+
+if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' ,$_SESSION))
+{
   $username = $_SESSION['username'];
+  $id = $_SESSION['usuariologado'];
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +31,7 @@ if(array_key_exists('username', $_SESSION)){
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
-      <?php
-         echo "Seja bem vindo (a), ".$_SESSION['username'];
-       ?>
+     <H3> Seja bem vindo a <?= $username ?></H3>
     <a href="solicitacao.php" class="button" type="button"><button class="button">Solicitação</button></a>
     <button type="button" class="button">Calendário</button>
     <button type="button" class="button">Contato</button>
