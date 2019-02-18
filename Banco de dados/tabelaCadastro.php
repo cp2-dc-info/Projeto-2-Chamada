@@ -19,5 +19,18 @@ function insereUsuario($dadosNovoUsuario)
 
 	$sql->execute();
 }
+function BuscaUsuarioPorEmail(string $email)
+	{
+		$bd = criaConexaoBD();
 
+		$sql = $bd->prepare("SELECT email, senha ,nome
+			FROM cadastro 
+			WHERE email = :email");
+
+		$sql -> bindValue(':email', $email);
+
+		$sql->execute();
+
+		return $sql -> fetch();
+	}
 ?>

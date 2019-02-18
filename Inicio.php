@@ -1,10 +1,16 @@
 <?php
 session_start();
 
-if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' ,$_SESSION))
+if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' ,$_SESSION != null))
 {
   $username = $_SESSION['username'];
   $id = $_SESSION['usuariologado'];
+ // var_dump($username);
+}
+else 
+{
+
+  header('Location:Index.php');
 }
 
 ?>
@@ -31,7 +37,7 @@ if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' 
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
-     <H3> Seja bem vindo a <?= $username ?></H3>
+     <H3> Seja bem vindo a <?php echo $username; ?></H3>
     <a href="solicitacao.php" class="button" type="button"><button class="button">Solicitação</button></a>
     <button type="button" class="button">Calendário</button>
     <button type="button" class="button">Contato</button>

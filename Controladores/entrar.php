@@ -2,20 +2,7 @@
 
 require_once('../Banco de dados/criaConexãoBD.php');
 
-function BuscaUsuarioPorEmail(string $email)
-	{
-		$bd = criaConexaoBD();
-
-		$sql = $bd->prepare("SELECT email, senha 
-			FROM cadastro 
-			WHERE email = :email");
-
-		$sql -> bindValue(':email', $email);
-
-		$sql->execute();
-
-		return $sql -> fetch();
-	}
+require_once('../Banco de dados/tabelaCadastro.php');
 
 $erro = null;
 
@@ -40,12 +27,12 @@ else if ($senha == false)
 }
 else
 {
-	$usuário = BuscaUsuarioPorEmail($email);
-	if ($usuário == false)
+	$usuario = BuscaUsuarioPorEmail($email);
+	if ($usuario == false)
 	{
 		$erro = "Usuário não cadastrado";
 	}
-	else if (password_verify($senha, $usuário['senha']) == false)
+	else if (password_verify($senha, $usuario['senha']) == false)
 	{
 		$erro = "Senha inválida";
 	}
@@ -56,7 +43,7 @@ else
 session_start();
 if ($erro == null)
 {
-		$_SESSION['emailUsuarioLogado'] = $usuário['email'];
+		$_SESSION['usuariologado'] = $usuario['id'];
 		$user_name = $usuario['nome'];
 		$_SESSION['username'] = $user_name;	
 		header('Location: ../Inicio.php');
