@@ -1,12 +1,42 @@
 <?php
-/*
+
+require_once('../Banco de dados/tabelaSolicitacao.php');
+require_once('../Banco de dados/tabelaDisciplinaTurma.php');
+
+session_start();
+
 $erro = null;
+
+$request = array_map('trim', $_REQUEST);
+$request = filter_var_array(
+               $request,
+               [
+                'turma' => FILTER_VALIDATE_INT,
+                'justificativa' => FILTER_DEFAULT,
+                'disciplina' => FILTER_VALIDATE_INT,
+                 ]
+
+           );
+
+$justificativa = $request['justificativa'];
+if ($justificativa == false)
+{
+	$erros = "Deve ter justificativa";
+}
+
+$request['disciplina_turma'] =  Busca_id_disciplinaturma($request);
+if ($request['disciplina_turma'] == false)
+{
+  $erros = "Selecione as opções corretamente.";
+}
+
+$request['cadastro'] =  $_SESSION['usuariologado'];
 
 if(array_key_exists('arquivo', $_FILES) == false)
 {
 	$erro = "Arquivo não carregado.";
 }
-var_dump($_FILES);
+
 if(!isset($_FILES['arquivo']))
 {
   $erro = "errou";
@@ -38,67 +68,18 @@ else{
   echo $erro;
 }
 
-*/
-
-<?php
-
-require_once('../modelo/tabelaupload.php');
-require_once('../modelo/tabelausuario.php');
-$request = array_map('trim', $_REQUEST);
-$request = filter_var_array(
-               $request,
-               [
-                'justificativa' => FILTER_VALIDATE_INT
-                 ]
-           );
-$erro = [];
-
-$justificativa = $justificativa['ano'];
-if ($justificativa == false)
+session_start();
+if ($erro != null)
 {
-	$erros[] = "Deve ter ano;";
+	$_SESSION['erroSolicit'] = $erro;
+
+	header('location: ../solicitacao.php');
 }
-else if($justificativa < 0 || $justificativa > 4)
+else
 {
-	$erros = "Ano inválido";
+  $request['arquivo'] = $caminhoCompleto;
+	$id = insereSolicitacao($request);
+	header('location: ../Inicio.php');
 }
-if(isset($_FILES['arquivo'])):
-	$formatosPermitidos =  array("pdf" ,"jpeg" , "docx" ,"doc","txt" ,"png"  );
-	$extensao = pathinfo($_FILES['arquivo']['name'], PATHINFO_EXTENSION);
-	if (in_array($extensao, $formatosPermitidos)):
-		$temporario	= $_FILES['arquivo']['tmp_name'];
-		$novoNome = basename($_FILES['arquivo']['name']);
-		$pasta = "arquivos/$novoNome";
-		if (Pesquisaarquivos($novoNome) != false)
-		{		
-			$erros[] = "o arquivo do mesmo nome ja foi adicionado";
-  		}
-		else if(move_uploaded_file($temporario,"../$pasta")):
-			$request['arquivo'] = $pasta;
-			$request['nome'] = $novoNome;
-			$request['usuariosid'] = $master['id'];
-			$menssagem = "Upload feito com sucesso!";
-			$id = upload_feito($request);
-   			
-		else:
-			$erros = "Erro, não foi possivel fazer o upload!";
-		endif;
-	else:
-		$erros = "Formato inválido";
-	endif;
-endif;
- if (empty($erros))
-    {
-		
-		 header("Location:../exercicios.php?ano=$ano");
-	}
-	
-    else
-    {
-     
-      $_SESSION['errosup'] = $erros;
-      header("Location:../exercicios.php?ano=$ano");
-      
-    }
-?>
+
 ?>

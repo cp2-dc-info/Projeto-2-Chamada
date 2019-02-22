@@ -36,7 +36,7 @@ else
 	{
 		$erro = "Senha inválida";
 	}
-	
+
 }
 
 
@@ -45,9 +45,8 @@ if ($erro == null)
 {
 		$_SESSION['usuariologado'] = $usuario['id'];
 		$user_name = $usuario['nome'];
-		$_SESSION['username'] = $user_name;	
-		header('Location: ../Inicio.php');
-
+		$_SESSION['username'] = $user_name;
+	  header('Location: ../Inicio.php');
 }
 else
 {

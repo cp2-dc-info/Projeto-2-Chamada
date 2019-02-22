@@ -23,7 +23,7 @@ function BuscaUsuarioPorEmail(string $email)
 	{
 		$bd = criaConexaoBD();
 
-		$sql = $bd->prepare("SELECT email, senha ,nome
+		$sql = $bd->prepare("SELECT id, email, senha ,nome
 			FROM cadastro
 			WHERE email = :email");
 

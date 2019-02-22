@@ -1,11 +1,18 @@
-<?php 
+<?php
 session_start();
 require_once('Banco de Dados/tabelaDisciplinaTurma.php');
 
 if(array_key_exists('username', $_SESSION))
 {
   $username = $_SESSION['username'];
-}
+  $email = $_SESSION['usuariologado'];
+  	if (array_key_exists('usuariologado', $_SESSION) == false)
+  	{
+  		$_SESSION['erroLogin'] = "Identifique-se para acessar o site";
+  		header('location: Index.php');
+  		exit();
+  	}
+  }
 
 $Listaturma = Listaturma();
 
@@ -17,6 +24,7 @@ foreach (BuscaDisciplinasTurma() as $linha)
 }
 
  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +37,7 @@ foreach (BuscaDisciplinasTurma() as $linha)
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script>
     const listaDisciplinasPorTurma = <?= json_encode($lista_disciplina_por_turma, JSON_UNESCAPED_UNICODE) ?>;
 
@@ -54,10 +62,10 @@ foreach (BuscaDisciplinasTurma() as $linha)
         option = document.createElement('option');
         option.value = disciplina.id;
         option.text = disciplina.nome;
-        select.add (option);  
+        select.add (option);
       }
     }
- 
+
   </script>
 </head>
 
@@ -70,36 +78,36 @@ foreach (BuscaDisciplinasTurma() as $linha)
     </div>
 
     <div class="Container">
-        
 
-<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' novalidate>
+
+<form id="formulario" method="POST" action='Controladores/phpsolicitacao.php' enctype="multipart/form-data">
 
 
 
 <div class="campo">
   <label>Turma</label>
-    <select id="turma"  onchange = "updateOrder(this)">
+    <select id="turma" name="turma"  onchange = "updateOrder(this)">
             <option value="">Selecione a Turma</option>
 
       <?php foreach ($Listaturma as $turmas) { ?>
       <option value="<?= $turmas['id']?>"><?php echo $turmas['turma']?></option>
   <?php } ?>
     </select>
-  
+
 </div>
 
 <div class="campo">
     <label>Disciplina:</label>
-    <select id="disciplina">
+    <select id="disciplina" name="disciplina">
             <option value="">Selecione a disciplina</option>
     </select>
 </div>
 
 <div class="campo">
      <label>Justifique:</label>
-     <textarea></textarea>
+     <textarea name="justificativa"></textarea>
 
-        <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file"/>
+        <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file" required/>
 
         <button class="button" type="submit">Enviar</button>
 
