@@ -24,7 +24,7 @@ function BuscaUsuarioPorEmail(string $email)
 		$bd = criaConexaoBD();
 
 		$sql = $bd->prepare("SELECT email, senha ,nome
-			FROM cadastro 
+			FROM cadastro
 			WHERE email = :email");
 
 		$sql -> bindValue(':email', $email);
@@ -33,4 +33,28 @@ function BuscaUsuarioPorEmail(string $email)
 
 		return $sql -> fetch();
 	}
+
+	function BuscaUsuarioPorMatricula($matricula)
+		{
+			$bd = criaConexaoBD();
+
+			$sql = $bd->prepare("SELECT matricula
+				FROM cadastro
+				WHERE matricula = :matricula");
+
+			$sql -> bindValue(':matricula', $matricula);
+
+			$sql->execute();
+
+			if ($sql -> rowCount() == 0)
+    {
+      return 0;
+    }
+    else
+    {
+      return 1;
+    }
+		}
+
+
 ?>

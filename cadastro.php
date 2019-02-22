@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<?php 
+<?php
 
 session_start();
 if(array_key_exists('erroLogin', $_SESSION))
 {
+
   $erros = $_SESSION['erroLogin'];
   unset($_SESSION['erroLogin']);
+  var_dump($erros);
 }
 else {
   $erros = null;
@@ -33,7 +35,10 @@ else {
     <div id="login-descricao">
 
       <p id="cadastre"></p>
-      <form id="formulario" method="POST" action='Controladores/phpcadastro.php' novalidate>
+
+
+      <form id="formulario" method="POST" action='Controladores/phpcadastro.php' >
+
 
       </br><input name="nome" type="text"  placeholder="Nome" style="width:150px;font-size:16px;" width minlenght=3 maxlength=60 required/>
 
@@ -45,12 +50,19 @@ else {
 
         <input name="confirmaSenha" type="password" placeholder="Confirmar senha" style="width:150px; font-size:16px" minlenght=6 maxlength=12 required/><br/>
 
-        <br/><input name="email" type="email" placeholder="E-mail" style="width:150px; font-size:16px" required/><br/><br/> 
+        <br/><input name="email" type="email" placeholder="E-mail" style="width:150px; font-size:16px" required/><br/><br/>
 
         <label><input name="alertasEmail" type="checkbox"/>Receber alertas por e-mail.</label><br/>
 
       </br><input class ="botao btn btn-primary" type="submit" value="Criar conta"/>
 
+      <?php if ($erros != null) { ?>
+                    <ul>
+                    <?php foreach($erros as $msg) { ?>
+                          <li><?= $msg ?></li>
+                    <?php } ?>
+                    </ul>
+                  <?php } ?>
       </form>
     </div>
 

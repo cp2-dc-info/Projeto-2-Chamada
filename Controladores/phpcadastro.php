@@ -100,25 +100,27 @@ else if (strlen($matricula) > 9 || strlen($matricula) < 7)
 {
 	$erros[] = "A quantidade de caracteres da matrícula é inválida";
 }
-
+else if (BuscaUsuarioPorMatricula($matricula) != 0)
+{
+	$erros[] = "Já existe um aluno cadastrado com essa matrícula";
+}
 
 session_start();
 if ($erros != null)
 {
 	$_SESSION['erroLogin'] = $erros;
-	
+
 	header('location: ../cadastro.php');
 }
 else if ($erros == null)
 {
-	
+
 	$id = insereUsuario($validar);
 	$_SESSION['usuariologado'] = $id;
 	$_SESSION['username'] = $nome;
-	header('location: ../inicio.php');
+	header('location: ../Inicio.php');
 }
 
 
 
 ?>
-
