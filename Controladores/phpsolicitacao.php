@@ -71,7 +71,7 @@ if(isset($_FILES['arquivo'])):
 		$pasta = "arquivos/$novoNome";
 		if (Pesquisaarquivos($novoNome) != false)
 		{		
-			$erros[] = "o arquvo do mesmo nome ja foi adicionado";
+			$erros[] = "o arquivo do mesmo nome ja foi adicionado";
   		}
 		else if(move_uploaded_file($temporario,"../$pasta")):
 			$request['arquivo'] = $pasta;
