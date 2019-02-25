@@ -13,7 +13,7 @@ $request = filter_var_array(
                [
                 'turma' => FILTER_VALIDATE_INT,
                 'justificativa' => FILTER_DEFAULT,
-                'disciplina' => FILTER_VALIDATE_INT,
+                'disciplina' => FILTER_VALIDATE_INT
                  ]
 
            );
@@ -61,14 +61,13 @@ else
 }
 
 if($erro == null){
-  echo "Deu tudo certo";
+   $msg = "Deu tudo certo";
 }
 else{
   echo "Deu tudo errado";
   echo $erro;
 }
 
-session_start();
 if ($erro != null)
 {
 	$_SESSION['erroSolicit'] = $erro;
@@ -78,8 +77,12 @@ if ($erro != null)
 else
 {
   $request['arquivo'] = $caminhoCompleto;
+  $request['nome'] = $nomeOrig;
+
 	$id = insereSolicitacao($request);
+  $_SESSION['arquivos'] = $id;
 	header('location: ../Inicio.php');
+  $_SESSION['sucesso'] = $msg;
 }
 
 ?>

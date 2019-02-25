@@ -11,7 +11,7 @@
     $erro = null;
   }
 
-  
+
 
 ?>
 
@@ -32,8 +32,13 @@
 
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
-      <?= $erro ?>
     </div>
+
+    <?php if ($erro != null) { ?>
+      <div class="alert alert-danger">
+        <?= $erro ?>
+      </div>
+    <?php } ?>
 
     <div class="Container">
         <form method="POST" class="form" action="Controladores/entrar.php">

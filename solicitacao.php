@@ -2,17 +2,21 @@
 session_start();
 require_once('Banco de Dados/tabelaDisciplinaTurma.php');
 
+
 if(array_key_exists('username', $_SESSION))
 {
   $username = $_SESSION['username'];
   $email = $_SESSION['usuariologado'];
-  	if (array_key_exists('usuariologado', $_SESSION) == false)
-  	{
-  		$_SESSION['erroLogin'] = "Identifique-se para acessar o site";
-  		header('location: Index.php');
-  		exit();
-  	}
+}
+else
+  {
+    $_SESSION['erroLogin'] = "Identifique-se para acessar o site";
+    header('location: Index.php');
+    exit();
   }
+
+
+
 
 $Listaturma = Listaturma();
 
@@ -76,7 +80,7 @@ foreach (BuscaDisciplinasTurma() as $linha)
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
-
+    
     <div class="Container">
 
 

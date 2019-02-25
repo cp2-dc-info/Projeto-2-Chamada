@@ -8,6 +8,14 @@ if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' 
 
 }
 
+if(array_key_exists('sucesso', $_SESSION))
+{
+  $msg = $_SESSION['sucesso'];
+  unset($_SESSION['sucesso']);
+}
+else {
+  $msg = null;
+}
 
 ?>
 
@@ -23,7 +31,7 @@ if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -33,9 +41,16 @@ if(array_key_exists('usuariologado', $_SESSION ) && array_key_exists('username' 
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
+
+    <?php if ($msg != null) { ?>
+      <div class="alert alert-success">
+        <?= $msg ?>
+      </div>
+    <?php } ?>
+
      <H3> Seja bem vindo a <?php echo $username; ?></H3>
     <a href="solicitacao.php" class="button" type="button"><button class="button">Solicitação</button></a>
-    <button type="button" class="button">Calendário</button>
+    <a href="Acompanhamento.php" class="button" type="button"><button class="button">Acompanhamento</button></a>
     <button type="button" class="button">Contato</button>
     <a href="Controladores/sair.php" class ="button" type="button"><button class="button"> Sair </button> </a>
 
