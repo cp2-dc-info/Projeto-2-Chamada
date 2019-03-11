@@ -20,15 +20,39 @@ function insereSolicitacao($solicit)
 
 }
 
-function BuscaAcompanhamento()
+function BuscaAcompanhamento($id)
 	{
 		$bd = criaConexaoBD();
 
-		$sql = $bd->prepare("SELECT * FROM pedidos");
+		$sql = $bd->prepare("SELECT justificativa, arquivo, datahora, nome
+			FROM pedidos
+			WHERE cadastro = :valId
+			");
+
+			$sql->bindValue(':valId', $id);
+
 
 		$sql->execute();
 
 		return $sql -> fetchall();
 	}
+
+	function BuscaAcompanhamentoAdmin()
+		{
+			$bd = criaConexaoBD();
+
+			$sql = $bd->prepare("SELECT pedidos.*, cadastro.nome AS nomeAluno
+				                   FROM cadastro JOIN pedidos
+												   ON cadastro.id = pedidos.cadastro
+			");
+
+			$sql -> execute();
+
+			return $sql -> fetchall();
+
+
+
+	}
+
 
 ?>

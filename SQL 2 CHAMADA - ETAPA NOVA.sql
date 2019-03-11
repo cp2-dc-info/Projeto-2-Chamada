@@ -5,7 +5,7 @@ CREATE TABLE cadastro(
     sobrenome VARCHAR(50) NOT NULL,
     email VARCHAR(100) unique NOT NULL,
     senha VARCHAR(60) NOT NULL,
-    tipo INT NOT NULL,     
+    tipo INT NOT NULL,
     PRIMARY KEY(id)
     );
 
@@ -51,3 +51,5 @@ INSERT INTO disciplina(nome) VALUES
 ('Filosofia'),
 ('Sociologia'),
 ('Física');
+
+INSERT INTO `cadastro`(`matricula`, `nome`, `sobrenome`, `email`, `senha`, `tipo`) VALUES ('ADM0123','ADM','ADM','admin@cp2.com','admincp20321',3)

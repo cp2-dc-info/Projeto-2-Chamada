@@ -46,7 +46,17 @@ if ($erro == null)
 		$_SESSION['usuariologado'] = $usuario['id'];
 		$user_name = $usuario['nome'];
 		$_SESSION['username'] = $user_name;
-	  header('Location: ../Inicio.php');
+
+    if ($usuario['tipo'] == 1)
+    {
+	     header('Location: ../Inicio.php');
+     }
+     else if($usuario['tipo'] == 3) {
+        header('Location: ../InicioAdmin.php');
+     }
+     else {
+        header('Location: ../Inicio.php');
+     }
 }
 else
 {

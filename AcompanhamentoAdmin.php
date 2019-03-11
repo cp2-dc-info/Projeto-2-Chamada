@@ -17,7 +17,7 @@ else
     exit();
   }
 
-$acompanhamento = BuscaAcompanhamento($email);
+$acompanhamento = BuscaAcompanhamentoAdmin();
 
  ?>
  <!DOCTYPE html>
@@ -44,16 +44,19 @@ $acompanhamento = BuscaAcompanhamento($email);
 
          <thead>
            <tr>
-             <th>Arquivo</th>
+             <th>Nome do Aluno</th>
              <th>Justificativa</th>
+             <th>Arquivo</th>
              <th>Data/Hora</th>
+
            </tr>
          </thead>
          <tbody>
 <?php foreach ($acompanhamento as $acon ){ ?>
     <tr>
+      <td><?= $acon['nomeAluno']; ?></td>
+      <td class="colJust"><?= $acon['justificativa']; ?></td>
        <td><a href="<?= $acon['arquivo'];?>"><?= $acon['nome']?></td>
-       <td><?= $acon['justificativa']; ?></td>
        <td><?= $acon['datahora']; ?></td>
 
      </tr>

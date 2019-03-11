@@ -56,6 +56,9 @@
   margin-left:75px;
 }
 
+.colJust{
+  max-width: 10px;
+}
 body{
   font-family: "Georgia", Georgia, serif;
 }

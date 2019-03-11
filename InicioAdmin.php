@@ -49,9 +49,8 @@ else {
     <?php } ?>
 
      <H3> Seja bem vindo(a) <?php echo $username; ?></H3>
-    <a href="solicitacao.php" class="button" type="button"><button class="button">Solicitação</button></a>
-    <a href="Acompanhamento.php" class="button" type="button"><button class="button">Acompanhamento</button></a>
-    <button type="button" class="button">Contato</button>
+    <a href="AcompanhamentoAdmin.php" class="button" type="button"><button class="button">Acompanhamento</button></a>
+    <a href="alterarsenhaadmin.php" class ="button" type="button"><button class="button"> Alterar a Senha padrão </button> </a>
     <a href="Controladores/sair.php" class ="button" type="button"><button class="button"> Sair </button> </a>
 
 <footer class="rodape">

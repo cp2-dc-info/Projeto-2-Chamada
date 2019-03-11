@@ -18,12 +18,15 @@ function insereUsuario($dadosNovoUsuario)
 	$sql->bindValue(':matricula', $dadosNovoUsuario['matricula']);
 
 	$sql->execute();
+
+	return $db -> lastInsertId();
 }
+
 function BuscaUsuarioPorEmail(string $email)
 	{
 		$bd = criaConexaoBD();
 
-		$sql = $bd->prepare("SELECT id, email, senha ,nome
+		$sql = $bd->prepare("SELECT id, email, senha ,nome, tipo
 			FROM cadastro
 			WHERE email = :email");
 

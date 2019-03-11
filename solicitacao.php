@@ -80,7 +80,7 @@ foreach (BuscaDisciplinasTurma() as $linha)
     <div id="login-logo">
       <img src="logo.png" id="logo" alt="CP2">
     </div>
-    
+
     <div class="Container">
 
 
@@ -114,18 +114,14 @@ foreach (BuscaDisciplinasTurma() as $linha)
         <br><b>Selecione o arquivo:</b></br> <input name="arquivo" size="10" type="file" required/>
 
         <button class="button" type="submit">Enviar</button>
+</div>
 
   </form>
 
-</div>
-
-
   <a href="Inicio.php" class="button" type="button"><button class="button">Voltar</button></a>
-  <button type="button" class="button">Enviar</button>
-</form>
-
 
     </div>
+
 <footer class="rodape">
   <article>Plataforma desenvolvida por alunos do Colégio Pedro II - Duque de Caxias</article>
 </footer>
