@@ -7,14 +7,14 @@ function insereSolicitacao($solicit)
 	$db = criaConexaoBD();
 
 	$sql = $db->prepare(
-	"INSERT INTO pedidos (cadastro, disciplina_turma, justificativa, arquivo,nome)
-	VALUES (:cadastro, :disciplina_turma, :justificativa, :arquivo, :nome);");
+	"INSERT INTO pedidos (cadastro, disciplina_turma, justificativa, arquivo)
+	VALUES (:cadastro, :disciplina_turma, :justificativa, :arquivo );");
 
 	$sql->bindValue(':cadastro', $solicit['cadastro']);
 	$sql->bindValue(':disciplina_turma', $solicit['disciplina_turma']);
 	$sql->bindValue(':justificativa', $solicit['justificativa']);
 	$sql->bindValue(':arquivo', $solicit['arquivo']);
-	$sql->bindValue(':nome', $solicit['nome']);
+	
 
 	$sql -> execute();
 
@@ -24,8 +24,7 @@ function BuscaAcompanhamento($id)
 	{
 		$bd = criaConexaoBD();
 
-		$sql = $bd->prepare("SELECT justificativa, arquivo, datahora, nome
-			FROM pedidos
+		$sql = $bd->prepare("SELECT * FROM pedidos
 			WHERE cadastro = :valId
 			");
 

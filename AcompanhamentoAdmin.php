@@ -48,6 +48,9 @@ $acompanhamento = BuscaAcompanhamentoAdmin();
              <th>Justificativa</th>
              <th>Arquivo</th>
              <th>Data/Hora</th>
+             <!--<th>Deferimento</th> -->
+
+
 
            </tr>
          </thead>
@@ -56,9 +59,26 @@ $acompanhamento = BuscaAcompanhamentoAdmin();
     <tr>
       <td><?= $acon['nomeAluno']; ?></td>
       <td class="colJust"><?= $acon['justificativa']; ?></td>
-       <td><a href="<?= $acon['arquivo'];?>"><?= $acon['nome']?></td>
+       <td><a href="<?= $acon['arquivo'];?>"><?= $acon['arquivo']?></td>
        <td><?= $acon['datahora']; ?></td>
 
+      <!--<td>
+        <form action="Controladores/deferimento.php">
+             <select name="decisao">
+              <option>Selecione</option>
+              <option value="0"> Deferir </option>
+              <option value="1"> Indeferir </option>
+            </select>
+
+            <input name="pedidos" type="hidden" value="<?= $acon['id'] ?>">
+            <br>
+            <textarea name="justificativa" placeholder="Justificativa"></textarea>
+           
+            <input type="submit">
+
+        </form>
+      </td>
+-->
      </tr>
      <?php } ?>
        </table>
